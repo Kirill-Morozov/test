@@ -29,7 +29,7 @@ function Row ({ data, changeText, changeData, setTab, curTab }) {
       <footer>
         asdasd
       </footer>
-      <div className={cn(css['row__column-title-bold_text'], data && css._red, {[css._red]: data})}>
+      <div className={cn(css['row__column-title-bold_text'], data ? css.asd : css.zxc ,data && css._red, {[css._red]: data})}>
         <div className='row__column'>
           <div className='row__column-title'>
             <div className='row__column-title-bold_text _red'>
