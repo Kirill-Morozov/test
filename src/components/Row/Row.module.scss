@@ -1,0 +1,9 @@
+.wrap{
+  background: #ab7af7;
+}
+
+.row__column-title-bold_text{
+  composes: wrap from global;
+  @extend .wrap;
+  color: #000;
+}

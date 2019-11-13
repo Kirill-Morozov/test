@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { changeText } from 'actions/test.action'
-import { Test2 } from 'actions/test2.action'
+import { actionCreators } from 'actions/test.action'
+import { Test2, Test3 } from 'actions/test2.action'
 import css from './Test.module.scss'
+import Row from 'components/Row/Row'
 
 function Test (props) {
   const { test, changeText, changeData, data } = props
@@ -10,29 +11,7 @@ function Test (props) {
 
   return (
     <div className={css.wrap}>
-      <header>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad aliquam asperiores assumenda distinctio
-          eligendi error, ex explicabo facilis in incidunt magnam, minima nostrum pariatur perferendis quaerat quibusdam
-          ratione voluptates?
-        </p>
-      </header>
-      <section>
-        <div onClick={() => {
-          changeText('asd')
-          setTab('test')
-          changeData({ text: 'zxczxczxsad' })
-        }}>
-          {data}->{curTab}
-        </div>
-        <input type='text' onChange={event => {
-          console.log('event', event.target.value)
-          changeText(event.target.value)
-        }} />
-      </section>
-      <footer>
-        asdasd
-      </footer>
+      <Row {...{ data, test, changeText, changeData, setTab, curTab }} />
     </div>
   )
 }
@@ -43,7 +22,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  changeText: changeText,
+  changeText: actionCreators.changeText,
   changeData: Test2
 }
 
