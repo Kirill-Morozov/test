@@ -5,7 +5,7 @@ import Todo from 'pages/Todo/Todo'
 const Routes = () => (
   <Switch>
     <Route component={Todo}
-           path='/test:id'
+           path='/test/:id'
     />
     <Route component={Todo}
            path='*'

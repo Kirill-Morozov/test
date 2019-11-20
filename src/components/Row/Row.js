@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import cn from 'classnames'
 
 function Row (props) {
-  console.log('props', props)
   const { deleteRow, editRow, id, title, className } = props
   return (
     <div className={cn(css.wrap, className)}>

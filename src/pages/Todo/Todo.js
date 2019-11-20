@@ -3,15 +3,17 @@ import { connect } from 'react-redux'
 import { actionCreators } from 'actions/todo.action'
 import css from './Test.module.scss'
 import Row from 'components/Row/Row'
+import { withRouter } from 'react-router-dom'
+import { compose } from 'redux'
 
 function Todo (props) {
-  const { getData, todoData, todoData: { isAjax, isEmpty, data } } = props
+  const { getData, history: { match }, todoData: { isAjax, isEmpty, data } } = props
 
   useEffect(() => {
     getData()
   }, [])
 
-  console.log('todoData', todoData)
+  console.log('props', props, match)
 
   if (isAjax || isEmpty) {
     return <div className={css.wrap}>пусто</div>
@@ -53,4 +55,7 @@ const mapDispatchToProps = {
   getData: actionCreators.getData
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Todo)
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(Todo)

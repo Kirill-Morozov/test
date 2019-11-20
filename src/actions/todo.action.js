@@ -5,13 +5,15 @@ import {
   GET_DATA_ERROR
 } from 'constants/TODO'
 
+const API = 'https://test.megapolis-it.ru/api/list'
+
 export const actionCreators = {
   getData: payload => (dispatch, getState) => {
     dispatch({
       type: GET_DATA_START
     })
 
-    axios.get('https://test.megapolis-it.ru/api/list').then(res => {
+    axios.get(API).then(res => {
       console.log('res', res)
       if (res.status === 200) {
         dispatch({
