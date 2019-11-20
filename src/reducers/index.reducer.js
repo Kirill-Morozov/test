@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux'
-import test from './test.redux'
-import getData from './test2.redux'
+import todoData from './todo.redux'
 
 export default combineReducers({
-  test,
-  getData
+  todoData
 })

@@ -121,7 +121,7 @@ function checkValidServiceWorker(swUrl, config) {
     })
     .catch(() => {
       console.log(
-        'No internet connection found. Test is running in offline mode.'
+        'No internet connection found. Todo is running in offline mode.'
       );
     });
 }

@@ -1,47 +1,39 @@
 import React from 'react'
 import css from './Row.module.scss'
+import PropTypes from 'prop-types'
 import cn from 'classnames'
 
-function Row ({ data, changeText, changeData, setTab, curTab }) {
-
+function Row (props) {
+  console.log('props', props)
+  const { deleteRow, editRow, id, title, className } = props
   return (
-    <div className={css.wrap}>
-      <header>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, ad aliquam asperiores assumenda distinctio
-          eligendi error, ex explicabo facilis in incidunt magnam, minima nostrum pariatur perferendis quaerat quibusdam
-          ratione voluptates?
-        </p>
-      </header>
-      <section>
-        <div onClick={() => {
-          changeText('asd')
-          setTab('test')
-          changeData({ text: 'zxczxczxsad' })
-        }}>
-          {data}->{curTab}
-        </div>
-        <input type='text' onChange={event => {
-          console.log('event', event.target.value)
-          changeText(event.target.value)
-        }} />
-      </section>
-      <footer>
-        asdasd
-      </footer>
-      <div className={cn(css['row__column-title-bold_text'], data ? css.asd : css.zxc ,data && css._red, {[css._red]: data})}>
-        <div className='row__column'>
-          <div className='row__column-title'>
-            <div className='row__column-title-bold_text _red'>
-              asdasd
-            </div>
-          </div>
-        </div>
+    <div className={cn(css.wrap, className)}>
+      {title}
+      <div>
+        <button
+          onClick={() => {
+            editRow(id)
+          }}>
+          Редактировать
+        </button>
+        <button
+          onClick={() => {
+            deleteRow(id)
+          }}
+        >
+          Удалить
+        </button>
       </div>
     </div>
   )
 }
 
-Row.propTypes = {}
+Row.propTypes = {
+  deleteRow: PropTypes.func,
+  editRow: PropTypes.func,
+  id: PropTypes.number,
+  title: PropTypes.string,
+  className: PropTypes.string
+}
 
 export default Row

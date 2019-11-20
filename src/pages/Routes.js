@@ -1,14 +1,13 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Test from 'pages/Test/Test'
+import Todo from 'pages/Todo/Todo'
 
 const Routes = () => (
   <Switch>
-    <Route component={Test}
-           exact
-           path={'/test'}
+    <Route component={Todo}
+           path='/test:id'
     />
-    <Route component={Test}
+    <Route component={Todo}
            path='*'
     />
   </Switch>
